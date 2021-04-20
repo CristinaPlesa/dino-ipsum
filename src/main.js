@@ -15,22 +15,35 @@ class dinoIpsumGetter {
           } else {
             reject(request.response);
           }
-        }
+        };
         request.open("GET", url, true);
         request.send();
-      })
+      });
 
       promise.then(function(response) {
         const body = JSON.parse(response);
+        console.log(body);
         console.log(response);
-        displayIpsum(response.data);
+        displayIpsum(body);
       }, function(error) {
-        throw Error(error)
-      })
+        throw Error(error);
+      });
     } catch(error) {
-      console.error(error)
+      console.error(error);
     }
   }
 }
 
-function displayIpsum()
+function displayIpsum(dataArray) {
+  let html = ``;
+  dataArray.forEach(wordsArray => {
+    html += `<p>${wordsArray.join(" ")}.</p>`;
+  });
+  $("#response").html(html);
+}
+
+$("#input-form").submit(event => {
+  event.preventDefault();
+  const numberOfParagraphs = $("#paragraphs").val();
+  dinoIpsumGetter.getFromApi(numberOfParagraphs);
+});

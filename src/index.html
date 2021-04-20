@@ -4,16 +4,18 @@
   <title>Dino Ipsum</title>
 </head>
 <body>
-  <h1>Enter three lengths to determine if they can make a triangle.</h1>
-  <form id="triangle-checker-form">
-    <label for="length1">Enter a number:</label>
-    <input id="length1" type="number">
-    <label for="length2">Enter a number:</label>
-    <input id="length2" type="number">
-    <label for="length3">Enter a number:</label>
-    <input id="length3" type="number">
-    <button type="submit">Submit</button>
-  </form>
-  <ul id="response"></ul>
+  <div class="container-fluid main">
+    <header class="header text-center text-uppercase mb-5 p-2">
+      <h1>Grab some placeholder Dino Ipsum text!</h1>
+    </header>
+    <section>
+      <form class="form p-3" id="input-form">
+        <label for="paragraphs">How many paragraphs would you like?</label>
+        <input id="paragraphs" type="number" min="0" max="15" placeholder="Enter paragraphs number...">
+        <button class="btn btn-lg btn-block p-5 btn-outline-info" type="submit">Get Dino Ipsum!</button>
+      </form>
+    </section>
+    <div class="container" id="response"></div>
+  </div>
 </body>
 </html>
